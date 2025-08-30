@@ -1,0 +1,154 @@
+:root {
+  /* Card defaults */
+  --card-width: 48px;
+  --card-width-small-board: 60px;
+  --card-width-medium-board: 50px;
+  --card-width-large-board: 50px;
+  --card-width-eq18: 50px;
+  --card-width-xlarge-board: 40px;
+  --grid-gap: 3px;
+}
+
+section.board {
+  display: grid;
+  grid-template-columns: repeat(var(--max-cols), var(--card-width));
+  gap: var(--grid-gap);
+}
+
+section.board > button {
+  width: var(--card-width);
+  height: var(--card-height);
+  padding: 0;
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+}
+
+section.board > button > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+section.board > button.back:hover {
+  transform: scale(1.05);
+}
+
+section.board > button.player1,
+section.board > button.player2 {
+  transition: background-color 0.5s ease-in-out;
+}
+
+section.board.multiplayer > button.player1 {
+  border-color: var(--player1);
+}
+
+section.board.multiplayer > button.player2 {
+  border-color: var(--player2);
+}
+
+/* Headings and player colors */
+h2.player1,
+h2.player2 {
+  margin-bottom: 1rem;
+}
+
+.player1 {
+  color: var(--player1);
+}
+
+.player2 {
+  color: var(--player2);
+}
+
+/* Game State UI */
+.upper-left,
+.upper-right {
+  position: fixed;
+  top: 0.5rem;
+  z-index: 9999;
+  padding: 0;
+}
+
+.upper-left {
+  left: 0.5rem;
+  pointer-events: none;
+}
+
+.upper-right {
+  right: 0.5rem;
+}
+
+/* Responsive Card Sizes */
+@media (min-width: 414px) {
+  :root {
+    --card-width-small-board: 80px;
+    --card-width-medium-board: 60px;
+    --card-width-large-board: 60px;
+    --card-width-eq18: 60px;
+    --card-width-xlarge-board: 50px;
+  }
+}
+
+@media (min-width: 450px) {
+  :root {
+    --card-width-small-board: 70px;
+    --card-width-medium-board: 70px;
+    --card-width-large-board: 60px;
+    --card-width-eq18: 60px;
+    --card-width-xlarge-board: 50px;
+  }
+}
+
+@media (min-width: 700px) {
+  :root {
+    --card-width-small-board: 90px;
+    --card-width-medium-board: 90px;
+    --card-width-large-board: 70px;
+    --card-width-eq18: 60px;
+    --card-width-xlarge-board: 65px;
+  }
+}
+
+/* Board Variants (sizes) */
+section.board.small-board {
+  grid-template-columns: repeat(var(--max-cols), var(--card-width-small-board));
+}
+section.board.medium-board {
+  grid-template-columns: repeat(
+    var(--max-cols),
+    var(--card-width-medium-board)
+  );
+}
+section.board.large-board {
+  grid-template-columns: repeat(var(--max-cols), var(--card-width-large-board));
+}
+section.board.eq18 {
+  grid-template-columns: repeat(var(--max-cols), var(--card-width-eq18));
+}
+section.board.xlarge-board {
+  grid-template-columns: repeat(
+    var(--max-cols),
+    var(--card-width-xlarge-board)
+  );
+}
+
+section.board.small-board > button {
+  width: var(--card-width-small-board);
+}
+section.board.medium-board > button {
+  width: var(--card-width-medium-board);
+}
+section.board.large-board > button {
+  width: var(--card-width-large-board);
+}
+section.board.eq18 > button {
+  width: var(--card-width-eq18);
+}
+section.board.xlarge-board > button {
+  width: var(--card-width-xlarge-board);
+}
