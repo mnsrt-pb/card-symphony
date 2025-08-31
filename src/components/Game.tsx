@@ -179,12 +179,6 @@ export default function Game({
               ? "xlarge-board"
               : undefined;
 
-  const isPlayer1 = randomPlayer === 0;
-  const currentPlayerClass = isPlayer1 ? "player1" : "player2";
-  const currentPlayerName = isPlayer1
-    ? PLAYER_NAMES.player1
-    : PLAYER_NAMES.player2;
-
   return (
     <>
       {/* Winner Message */}
@@ -242,3 +236,5 @@ export default function Game({
     </>
   );
 }
+
+
