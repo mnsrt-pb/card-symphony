@@ -12,7 +12,7 @@
 
   /* Buttons */
   --button-size: 3rem;
-  --players-button-size: 10rem;
+  --players-button-size: 9rem;
   --selection-button-size: 5rem;
   --button-bg: #f4c06c;
   --button-bg-hover: var(--main-color);
@@ -20,27 +20,35 @@
   --button-text: #604415;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
 body {
   background: 
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
     var(--bg-img, none);
+  background-color: var(--main-color);
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
+  background-repeat: repeat;
+  overflow-x: hidden;
 }
 
 main {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  place-items: center;
-  height: 100vh;
   font-family: "Press Start 2P", system-ui;
   font-weight: 400;
   text-align: center;
   color: var(--main-color);
+  padding: 2rem; 
 }
 
 main.in-game body {
@@ -48,6 +56,13 @@ main.in-game body {
 }
 
 main h1 {
+  overflow-wrap:anywhere;
+  white-space: normal;
+  width: 90vw;
+}
+
+main h1 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   -webkit-text-stroke: 1px black;
 }
 
@@ -124,6 +139,7 @@ button {
 }
 
 .players-select > button {
+  font-size: 1rem;
   width: var(--players-button-size);
 }
 
@@ -154,6 +170,5 @@ button {
 
   body {
     background-size: contain;
-    background-color: var(--main-color);
   }
 }

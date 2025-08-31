@@ -1,11 +1,12 @@
 :root {
   /* Card defaults */
-  --card-width: 48px;
-  --card-width-small-board: 60px;
-  --card-width-medium-board: 50px;
-  --card-width-large-board: 50px;
-  --card-width-eq18: 50px;
-  --card-width-xlarge-board: 40px;
+  --card-width-xsmall-board: clamp(75px, 6vw, 120px);
+  --card-width-small-board: clamp(65px, 18vw, 90px);
+  --card-width-medium-board: clamp(55px, 13vw, 70px);
+  
+  --card-width-large-board: clamp(50px, 9vw, 60px);
+  --card-width-xlarge-board: clamp(40px, 12vw, 65px);
+
   --grid-gap: 3px;
 }
 
@@ -84,37 +85,15 @@ h2.player2 {
 }
 
 /* Responsive Card Sizes */
-@media (min-width: 414px) {
-  :root {
-    --card-width-small-board: 80px;
-    --card-width-medium-board: 60px;
-    --card-width-large-board: 60px;
-    --card-width-eq18: 60px;
-    --card-width-xlarge-board: 50px;
-  }
-}
-
-@media (min-width: 450px) {
-  :root {
-    --card-width-small-board: 70px;
-    --card-width-medium-board: 70px;
-    --card-width-large-board: 60px;
-    --card-width-eq18: 60px;
-    --card-width-xlarge-board: 50px;
-  }
-}
-
-@media (min-width: 700px) {
-  :root {
-    --card-width-small-board: 90px;
-    --card-width-medium-board: 90px;
-    --card-width-large-board: 70px;
-    --card-width-eq18: 60px;
-    --card-width-xlarge-board: 65px;
-  }
-}
 
 /* Board Variants (sizes) */
+section.board.xsmall-board {
+  grid-template-columns: repeat(
+    var(--max-cols),
+    var(--card-width-xsmall-board)
+  );
+}
+
 section.board.small-board {
   grid-template-columns: repeat(var(--max-cols), var(--card-width-small-board));
 }
@@ -127,9 +106,7 @@ section.board.medium-board {
 section.board.large-board {
   grid-template-columns: repeat(var(--max-cols), var(--card-width-large-board));
 }
-section.board.eq18 {
-  grid-template-columns: repeat(var(--max-cols), var(--card-width-eq18));
-}
+
 section.board.xlarge-board {
   grid-template-columns: repeat(
     var(--max-cols),
@@ -137,6 +114,9 @@ section.board.xlarge-board {
   );
 }
 
+section.board.xsmall-board > button {
+  width: var(--card-width-xsmall-board);
+}
 section.board.small-board > button {
   width: var(--card-width-small-board);
 }
@@ -145,9 +125,6 @@ section.board.medium-board > button {
 }
 section.board.large-board > button {
   width: var(--card-width-large-board);
-}
-section.board.eq18 > button {
-  width: var(--card-width-eq18);
 }
 section.board.xlarge-board > button {
   width: var(--card-width-xlarge-board);

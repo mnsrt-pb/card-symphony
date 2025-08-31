@@ -168,13 +168,13 @@ export default function Game({
 
   const cardWidthStyle: string | undefined =
     pairCount < 10
-      ? "small-board"
+      ? "xsmall-board"
       : pairCount == 10
-        ? "medium-board"
+        ? "small-board"
         : pairCount == 15
-          ? "large-board"
+          ? "medium-board"
           : pairCount == 18
-            ? "eq18"
+            ? "large-board"
             : pairCount > 18
               ? "xlarge-board"
               : undefined;
@@ -209,18 +209,22 @@ export default function Game({
 
       {/* Scoreboard / Current Player */}
       {isMultiplayer && (
-        <div className="upper-left">
-            <p className="player1">
-              {PLAYER_NAMES.player1}: {game.scores.player1}
-            </p>
-            <p className="player2">
-              {PLAYER_NAMES.player2}: {game.scores.player2}
-            </p>
-        </div>
+        <p className="upper-left">
+          <span className="player1">
+            {PLAYER_NAMES.player1}: {game.scores.player1}
+          </span>
+          <br />
+          <br />
+          <span className="player2">
+            {PLAYER_NAMES.player2}: {game.scores.player2}
+          </span>
+        </p>
       )}
 
       {/* Board */}
-      <section className={`board slow-fade-in ${cardWidthStyle} ${isMultiplayer && "multiplayer"}`}>
+      <section
+        className={`board slow-fade-in ${cardWidthStyle} ${isMultiplayer && "multiplayer"}`}
+      >
         {game.deck.map((card, i) => (
           <Card
             key={`${card.id}-${card.cardIndex}`}
@@ -236,5 +240,3 @@ export default function Game({
     </>
   );
 }
-
-
