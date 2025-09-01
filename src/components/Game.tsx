@@ -57,7 +57,7 @@ export default function Game({
     deck: initCards(pairCount),
     flippedIndices: [] as number[],
     scores: { player1: 0, player2: 0 },
-    activePlayer: 0 as 0 | 1,
+    activePlayer: randomInt(2) as 0 | 1,
     winningPhrase: "",
   });
 
